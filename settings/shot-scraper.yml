@@ -1,5 +1,10 @@
 - url: https://atlas.smartforests.net/
   output: homepage.png
+  javascript: |
+    new Promise(takeShot => {
+      // Wait for JS to load
+      setTimeout(takeShot, 5000)
+    })
 - url: https://atlas.smartforests.net/en/logbooks/
   output: logbooks.png
 - url: https://atlas.smartforests.net/en/logbooks/cop26/
@@ -12,6 +17,11 @@
   output: radio__episode.png
 - url: https://atlas.smartforests.net/en/map/
   output: map.png
+  javascript: |
+    new Promise(takeShot => {
+      // Wait for JS to load
+      setTimeout(takeShot, 5000)
+    })
 - url: https://atlas.smartforests.net/en/contributors/
   output: contributors.png
 - url: https://atlas.smartforests.net/en/contributors/danilo-urzedo/
@@ -20,5 +30,10 @@
   output: information_page.png
 - url: https://atlas.smartforests.net/api/docs/swagger/
   output: api_docs.png
+  javascript: |
+    new Promise(takeShot => {
+      // Wait for Swagger JS file to load
+      setTimeout(takeShot, 5000)
+    })
 - url: https://atlas.smartforests.net/admin/
   output: admin.png
