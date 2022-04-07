@@ -1,10 +1,11 @@
-name: Take screnshots
+name: Take screenshots
 
 on:
   push:
   workflow_dispatch:
   schedule:
-    - cron:  '2 15 * * *'
+    # Every 14 days
+    - cron:  '0 0 1/14 * *'
 
 jobs:
   test:
@@ -19,7 +20,7 @@ jobs:
       name: Configure pip caching
       with:
         path: ~/.cache/pip
-        key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+        key: ${{ runner.os }}-pip-${{ hashFiles('settings/requirements.txt') }}
         restore-keys: |
           ${{ runner.os }}-pip-
     - name: Cache Playwright browsers
@@ -29,14 +30,13 @@ jobs:
         key: ${{ runner.os }}-browsers
     - name: Install dependencies
       run: |
-        pip install -r requirements.txt
+        pip install -r settings/requirements.txt
     - name: Install Playwright dependencies
       run: |
         shot-scraper install
     - name: Take shots
       run: |
-        shot-scraper multi annotated-screenshot.yml --retina
-        shot-scraper multi owlsnearme-el-granada.yml
+        shot-scraper multi settings/screenshots.yml --retina
     - name: Commit and push if anything changed
       run: |-
         git config user.name "Automated"
