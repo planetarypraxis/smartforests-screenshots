@@ -7,6 +7,11 @@
     })
 - url: https://atlas.smartforests.net/en/logbooks/
   output: logbooks.png
+  javascript: |
+    new Promise(takeShot => {
+      // Wait for JS to load
+      setTimeout(takeShot, 5000)
+    })
 - url: https://atlas.smartforests.net/en/logbooks/cop26/
   output: logbooks__page.png
 - url: https://atlas.smartforests.net/en/stories/
