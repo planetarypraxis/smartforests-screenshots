@@ -8,7 +8,7 @@ on:
     - cron:  '0 0 1/14 * *'
 
 jobs:
-  test:
+  sample_page_screenshots:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -36,7 +36,7 @@ jobs:
         shot-scraper install
     - name: Take shots
       run: |
-        shot-scraper multi settings/shot-scraper.yml --retina
+        shot-scraper multi settings/shot-scraper.yml --width 1366 --height 800
     - name: Commit and push if anything changed
       run: |-
         git config user.name "Automated"
